@@ -1,0 +1,52 @@
+FPGA
+* landscape
+https://towardsdatascience.com/introduction-to-fpga-and-its-architecture-20a62c14421c
+- FPGA chips
+  - all proprietary
+  - major players: Xilinx (AMD) and Intel (formerly Altera)
+  - minor players
+    - Lattice
+      - "After AMD completed the acquisition of Xilinx in February
+        2022, Lattice Semiconductor became the last fully independent
+        major manufacturer of FPGAs."  https://en.wikipedia.org/wiki/Lattice_Semiconductor#Operations
+      - open source friendly/tolerating  https://hackaday.com/2020/06/06/lattice-drops-eula-clause-forbidding-fpga-bitstream-reverse-engineering/
+- architecture
+  https://towardsdatascience.com/introduction-to-fpga-and-its-architecture-20a62c14421c
+  - logic blocks :: "implement the logical functions required by the
+    design and consist of various components such as transistor pairs,
+    *look-up tables* (LUTs), flip flops, and multiplexers"
+  - programmable interconnect :: "hook [logic blocks] together by
+    programming the interconnects"
+- memory types  https://projectf.io/posts/fpga-memory-types/
+  - flips-flops :: 1-bit state/register (number of flip-flop is always the same as number of LUTs?)
+  - DRAM :: distributed RAM is built with LUTs (not supported by all FPGAs)
+    - high latency for random access (sequential works well)
+    - "complex to interface with: you’re almost certainly going to
+      have to use vendor IP blocks and a cache to make DRAM usable"
+  - BRAM :: block RAM
+  - SRAM :: static RAM, high speed but costly (not supported by all FPGAs, but iCE40 UP has it)
+- IP blocks
+  - non-proprietary collection  https://opencores.org/
+  - soft macro/block :: "A soft macro is the RTL [sic: HDL?] (VHDL or
+    Verilog) that describes the functional implementation of the
+    IP. This is compiled into a gate-level netlist, which is then
+    turned into a physical layout to produce the mask set for
+    manufacturing."  https://electronics.stackexchange.com/a/226841/305687
+  - hard macro/block ::  "A hard macro is a physical layout of the IP
+    suitable for a given process. It's added to the larger chip layout
+    as a single block, which saves some steps in the design process."
+- bitstream format
+  - not disclosed by manufacturer
+    - allows closed/expensive IP blocks (?)
+    - manufacturer can charge for its tools
+    - reverse engineering with fuzzing
+  - "The details of a specific FPGA's bitstream format (which defines
+    how the internal elements of the FPGA are connected and interact
+    with each other) are not usually published by FPGA vendors. This
+    means that, generally, an engineer creating a design for an FPGA
+    must use the tools provided by the FPGA's manufacturer."  [[https://en.wikipedia.org/wiki/ICE_(FPGA)#Development]]
+  - many reverse engineering efforts
+    - Lattice ECP5  https://prjtrellis.readthedocs.io/en/latest/index.html
+    - Lattice iCE
+    - Anlogic  https://github.com/mmicko/prjtang
+  - bitstream compression/compaction is desirable  https://github.com/nmi-leipzig/compact_bitstream

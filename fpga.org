@@ -188,6 +188,14 @@ https://www.easychair.org/publications/preprint/TPpq
 - free version with yearly renewal  https://www.latticesemi.com/latticediamond#_FD13D8A25CBB47BD83F143E5B55DBC75
 ** Xilinx Vivado ML Standard is free and runs on Linux  https://www.xilinx.com/products/design-tools/vivado/vivado-ml.html#licensing
 impression (2017): Vivado does no care about space efficiency  https://www.bunniestudios.com/blog/?p=5018
+* CPU soft cores
+- FOSS candidates: RISC-V and Propeller 1
+- patent protection
+  - it seems an ISA can be cloned/re-implemented if there is no patent protection
+  - !? only individual instructions can be covered by a patent, not the ISA as a whole  https://news.ycombinator.com/item?id=15404084
+  - example: "The older v2a version of the *ARM instruction set* is
+    supported because it [...] is not covered by patents so can be
+    implemented without a license from ARM"  https://opencores.org/projects/amber
 * Arduino-related approaches
 discussion  https://github.com/icebreaker-fpga/icebreaker/issues/39
 tweak Arduino IDE to use as bitstream uploader  https://github.com/drtrigon/fpgarduino-icestorm

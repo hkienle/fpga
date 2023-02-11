@@ -1,4 +1,18 @@
 FPGA
+* TODO learning resources
+** TODO lessons and labs https://github.com/litex-hub/fpga_101
+** FPGA Tomu Workshop  https://workshop.fomu.im/en/latest/
+** IceStorm Learner’s Documentation (2017) https://hedmen.org/icestorm-doc/icestorm.html
+  - outdated?
+  - does not cover UP chips, but perhaps very similar
+** Jordan Christman – Getting Started With FPGAs https://techexplorations.com/guides/summits/maker-mind-meld/jordan-christman-getting-started-with-fpgas/
+12:35 development process (IP catalog, state machine, simulation for debugging, synthesis, ...)
+16:37 FPGA vs. uC (power management)
+20:19 Xilink (now AMD) / Intel (Altera)
+22:40 dev boards (Digilent BASYS 3 good as a start), Pmod extension boards, Arty series (fits Arduino shields)
+26:40 project demo with Arty A7: buttons, LEDs, EN-switch
+  35:33 generate design
+42:25 Q: IP catalog (e.g., RS232)
 * landscape
 https://towardsdatascience.com/introduction-to-fpga-and-its-architecture-20a62c14421c
 - FPGA chips
@@ -174,3 +188,6 @@ https://www.easychair.org/publications/preprint/TPpq
 - free version with yearly renewal  https://www.latticesemi.com/latticediamond#_FD13D8A25CBB47BD83F143E5B55DBC75
 ** Xilinx Vivado ML Standard is free and runs on Linux  https://www.xilinx.com/products/design-tools/vivado/vivado-ml.html#licensing
 impression (2017): Vivado does no care about space efficiency  https://www.bunniestudios.com/blog/?p=5018
+* Arduino-related approaches
+discussion  https://github.com/icebreaker-fpga/icebreaker/issues/39
+tweak Arduino IDE to use as bitstream uploader  https://github.com/drtrigon/fpgarduino-icestorm

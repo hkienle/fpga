@@ -26,7 +26,7 @@ https://towardsdatascience.com/introduction-to-fpga-and-its-architecture-20a62c1
   - BRAM :: block RAM
   - SRAM :: static RAM, high speed but costly (not supported by all FPGAs, but iCE40 UP has it)
 - IP blocks
-  - non-proprietary collection  https://opencores.org/
+  - FOSS collection of IP blocks  https://opencores.org/
   - soft macro/block :: "A soft macro is the RTL [sic: HDL?] (VHDL or
     Verilog) that describes the functional implementation of the
     IP. This is compiled into a gate-level netlist, which is then
@@ -50,3 +50,38 @@ https://towardsdatascience.com/introduction-to-fpga-and-its-architecture-20a62c1
     - Lattice iCE
     - Anlogic  https://github.com/mmicko/prjtang
   - bitstream compression/compaction is desirable  https://github.com/nmi-leipzig/compact_bitstream
+* chips
+** Lattice iCE40 UltraPlus (iCE40-UP5K and iCE40-UP3K)  [[https://en.wikipedia.org/wiki/ICE_(FPGA)#iCE40_Ultra,_UltraLite,_&_UltraPlus]]
+- ...40 derives from 40 nm process
+- on the market since 2016 (HX is older)
+- best FOSS support (?)
+  - IceStorm has "support for iCE40 UltraPlus devices"  http://bygone.clairexen.net/icestorm/
+  - Yosys tooling for iCE40 "enables a level of transparency and
+    reproducibility that make iCE40 FPGAs highly suited for scientific
+    research"  https://www.easychair.org/publications/preprint/TPpq
+*** doc
+file:~/prj/ee-parts/ic-ice40up.pdf
+datasheet https://www.latticesemi.com/en/Products/FPGAandCPLD/iCE40UltraPlus#_1583858FEF1D4406B570F0CACD485268
+YT: Architecture and Technical Details (Part 2)  https://www.youtube.com/watch?v=UlgJ7TRU1KI
+*** buy
+EUR 8,89  https://www.mouser.de/ProductDetail/Lattice/ICE40UP5K-SG48I
+EUR 8,36  https://www.digikey.de/en/products/detail/lattice-semiconductor-corporation/ICE40UP5K-SG48I/7785190
+*** architecture
+- LC :: logical cell
+  - 1 LUT and 1 D-style flip-flop (DFF)
+- LUT :: look up tables (combinational logic, specifies "truth table")  https://electronics.stackexchange.com/questions/169532/what-is-an-lut-in-fpga
+  - ...-5K has 5280 LUT
+  - ...-3K has 2800 LUT
+  - up to 4 inputs -> " behaves as a 16x1 Read-Only Memory "
+- PLB :: programmable logic block
+  - consists of 8 interconnected LCs
+- NVCM for one-time(!) customization
+- SPI for programming (dedicated pins, can bypass NVCM)
+- hard blocks: I2C, SPI, DSP, RGB LED drivers, I3C, etc.
+- I/O banks, each configurable for a different voltage (1.8-3.3V) -> I/O pins
+- PLL -> I/O pins
+- SRAM 4x256kb
+  - single port
+  - can be cascaded to 1x1Mb  https://projectf.io/posts/spram-ice40-fpga/
+- delay lines
+- 24mA constant current sink (RGB LED or open drain)

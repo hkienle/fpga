@@ -85,3 +85,47 @@ EUR 8,36  https://www.digikey.de/en/products/detail/lattice-semiconductor-corpor
   - can be cascaded to 1x1Mb  https://projectf.io/posts/spram-ice40-fpga/
 - delay lines
 - 24mA constant current sink (RGB LED or open drain)
+* boards
+** PMOD extension boards  https://pmod.org/#/about
+- open standard (according to Digilent)
+- can use either SPI, I2C or UART protocol
+- broad range of functionality
+  - 8 LEDs (iceSugar)
+  - 8 switches (1bitsquared, iceSugar)
+  - 2x7-segment display (1bitsquared)
+  - DAC and ADC (Olimex)
+  - VGA (iceSugar, Olimex)
+  - HDMI (1bitsquared)
+  - audio (iceSugar)
+*** buy
+https://1bitsquared.de/search?type=product&q=pmod
+https://github.com/icebreaker-fpga/icebreaker-pmod
+** !! ICEbreaker - iCE40 UltraPlus 5K  https://github.com/icebreaker-fpga/icebreaker
+cf. file:./board-icebreaker.org
+** !! iCESugar (Muse Lab)  v1.5 - iCE40 UltraPlus 5K
+ICEBreaker clone/iteration?
+https://github.com/wuxx/icesugar/blob/master/README_en.md
+store https://miusecntech-muselab.aliexpress.com/store/5940159
+** Fomu - iCE40 UltraPlus 5K
+https://github.com/im-tomu/fomu-hardware
+https://www.crowdsupply.com/sutajio-kosagi/fomu
+** Olimex - iCE40  https://www.olimex.com/Products/FPGA/iCE40/
+*** iCE40HX1K-EVB
+https://github.com/OLIMEX/iCE40HX1K-EVB
+buy (EUR 15,95)  https://www.olimex.com/Products/FPGA/iCE40/iCE40HX1K-EVB/open-source-hardware
+*** iCE40HX8K-EVB
+buy (EUR 25,95)  https://www.olimex.com/Products/FPGA/iCE40/iCE40HX8K-EVB/open-source-hardware
+** OrangeCrab - Lattice ECP5-25F https://orangecrab-fpga.github.io/orangecrab-hardware/r0.2/
+** UPduino v3.1 - iCE40 UltraPlus 5K https://github.com/tinyvision-ai-inc/UPduino-v3.0
+buy https://lectronz.com/products/upduino-v3-1-low-cost-lattice-ice40-fpga-board
+examples with icestorm https://github.com/osresearch/up5k
+** ULX3S - Lattice ECP5 https://radiona.org/ulx3s/
+- "you can also use the ULX3S as powerful Arduino and program it using
+  Arduino IDE in seconds"
+** Alhambra II - iCE40HX4K  https://alhambrabits.com/alhambra/
+** BlackIce Mx - iCE40 HX4K  https://github.com/folknology/IceCore
+** Tang Nano 9K (GOWIN GW1NR-9)
+GW1NR-9 chip: GW1N (Traditional FPGA) + integrated RAM  https://www.gowinsemi.com/en/product/detail/46/
+https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-9K/Nano-9K.html
+https://github.com/sipeed/TangNano-9K-example/tree/main/picotiny
+PicoRV32 RISC-V soft-core with all peripherals  https://www.cnx-software.com/2022/01/17/tang-nano-9k-fpga-board-can-emulate-picorv32-risc-v-soft-core-with-all-peripherals/

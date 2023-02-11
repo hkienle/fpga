@@ -10,6 +10,7 @@ https://towardsdatascience.com/introduction-to-fpga-and-its-architecture-20a62c1
         2022, Lattice Semiconductor became the last fully independent
         major manufacturer of FPGAs."  https://en.wikipedia.org/wiki/Lattice_Semiconductor#Operations
       - open source friendly/tolerating  https://hackaday.com/2020/06/06/lattice-drops-eula-clause-forbidding-fpga-bitstream-reverse-engineering/
+      - !! GOWIN (China)  https://www.gowinsemi.com/en/
 - architecture
   https://towardsdatascience.com/introduction-to-fpga-and-its-architecture-20a62c14421c
   - logic blocks :: "implement the logical functions required by the
@@ -85,6 +86,8 @@ EUR 8,36  https://www.digikey.de/en/products/detail/lattice-semiconductor-corpor
   - can be cascaded to 1x1Mb  https://projectf.io/posts/spram-ice40-fpga/
 - delay lines
 - 24mA constant current sink (RGB LED or open drain)
+** GOWIN GW1N series
+FOSS support (maturity?) https://github.com/YosysHQ/apicula
 * boards
 ** PMOD extension boards  https://pmod.org/#/about
 - open standard (according to Digilent)

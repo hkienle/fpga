@@ -1,0 +1,47 @@
+* Icebreaker factory-loaded example
+https://github.com/icebreaker-fpga/icebreaker-verilog-examples/tree/main/icebreaker/blink_count_shift
+* explanation
+- This explanation is not meant as a Verilog tutorial. It is meant as
+  a refresher for people that use Verilog rarely. It focuses on the
+  higher-level intent, not so much the indiviudal Verilog constructs.
+- /counter/
+  - is declared as /reg/ and thus unsigned (versus /reg signed/)
+    - /reg/ is a "misnomer", System Verilog used /logic/
+  - is incremented with every rising clock
+  - wraps around from all 1's to zero
+  - is 27 bits wide, the lower 22 bits are discarded by /outcnt/ to get a slower running counter
+- /outcnt/
+  - 5-bit wide
+  - slows down the counting frequency of /counter/ by 2^22
+  - MSB controls LED1
+    - /LED1/ is the red LED of icebreaker's PMOD break-out section
+    - /LED1/ blinks with the slowest frequency
+  - LSB controls LED5
+- always block
+  - is executed sequentially
+  - becomes active with every rising signal of /CLK/
+- /outcnt ^ (outcnt >> 1)/
+  - /^/ is bit-wise xor
+  - />>/ is logical right shift (MSB becomes 0)
+  - is this some clever idiom or just "random" behavior?
+    - MSB stays the same (0->0, 1->1)
+    - MSB-1 has the same frequency as MSB
+- /P1A1, P1A2, P1A3, P1A4, P1A7, P1A8, P1A9, P1A10/
+  - maps to PMOD1A's data pins D0 to D7
+  - !! other P1Ax map to GND/3.3V
+    - TODO check: P1A6 = 1;  /* does Verilog allow this? */
+- LED[RG]_N is active low
+- /outcnt & 15/
+  - take outcnt[3:0] (i.e., 4 lowest bits)
+  - in other words, mask out MSB
+  - counts from 0 to 15 then wraps around
+- /assign {LEDR_N, LEDG_N} = ~(!BTN_N + BTN1 + BTN2 + BTN3)/
+  - /~/ is bitwise not, flips bits
+  - /!/ is logical (when operating on mulit-bit values)
+    - !? check: /!BTN_N/ and /~BTN_N/ are synonymous
+  - count the number of buttons pressed
+  - read LEDR_N (MSB) and LEDG_N (LSB) as a binary counter
+    - counter wraps around: if all 4 buttons are pressed, both LEDs are off
+- /assign {P1A1, ... P1B10} = 1 << (outcnt & 15)/
+  - a single 1 runs around a 16-bit wide number
+  - each data bit of PMOD1 is "activated"

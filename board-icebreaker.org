@@ -1,3 +1,6 @@
+SPDX-FileCopyrightText: 2023 Holger Kienle
+SPDX-License-Identifier: CC0-1.0
+
 ICEbreaker FPGA board https://github.com/icebreaker-fpga/icebreaker
 * board
 - Blue LED for status CDONE (Configuration DONE) - stays lit after succeeding

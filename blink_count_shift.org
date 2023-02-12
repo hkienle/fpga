@@ -1,3 +1,6 @@
+SPDX-FileCopyrightText: 2023 Holger Kienle
+SPDX-License-Identifier: CC0-1.0
+
 * Icebreaker factory-loaded example
 https://github.com/icebreaker-fpga/icebreaker-verilog-examples/tree/main/icebreaker/blink_count_shift
 * explanation

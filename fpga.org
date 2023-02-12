@@ -1,3 +1,6 @@
+SPDX-FileCopyrightText: 2023 Holger Kienle
+SPDX-License-Identifier: CC0-1.0
+
 FPGA
 * TODO learning resources
 ** TODO lessons and labs https://github.com/litex-hub/fpga_101

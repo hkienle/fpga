@@ -1,0 +1,53 @@
+ICEbreaker FPGA board https://github.com/icebreaker-fpga/icebreaker
+* board
+- Blue LED for status CDONE (Configuration DONE) - stays lit after succeeding
+- !? "Test points for UART Rx / Tx signals", where?
+** !! failure mode reset
+- no physical RESET button (?)  https://github.com/icebreaker-fpga/icebreaker/issues/48
+- CRESET jumper: "I didn't have it soldered so I just shorted it with
+  some tweezers"  https://canary.discord.com/channels/613131135903596547/613133241683279873/1049972192949043200
+- "hold down the RESET button and plug it in does it enumerate?"  https://canary.discord.com/channels/613131135903596547/613133241683279873/1049971682925875200
+* spec
+- https://github.com/icebreaker-fpga/icebreaker#icebreaker-hardware-specifications
+- https://docs.icebreaker-fpga.org/hardware/icebreaker/
+- schematic  https://github.com/icebreaker-fpga/icebreaker/blob/master/hardware/v1.0e/icebreaker-sch.pdf
+- PLL  https://github.com/YosysHQ/icestorm/wiki/iCE40-PLL-documentation
+- pcf (mapping of pin names to physical pin numbers)  https://github.com/icebreaker-fpga/icebreaker-verilog-examples/blob/main/icebreaker/icebreaker.pcf
+* ppl
+Sylvain "tnt" Munaut  https://github.com/smunaut
+* chat
+- Discord invite  https://discord.gg/P7FYThy
+  - #icebreaker channel  https://discord.com/channels/613131135903596547/613133241683279873
+  - iCE40linux channel  https://discord.com/channels/613131135903596547/870594502396641290
+- Matrix (dormant?)  https://matrix.to/#/#icebreaker-fpga_Lobby:gitter.im
+* buy
+- from developers (EUR 80,00) https://1bitsquared.de/products/icebreaker
+- from Mouser (EUR 80,00) https://www.mouser.de/ProductDetail/392-CS-ICEBREAKER-01
+- "iCEBreaker has become popular enough that it has been cloned all
+  over Aliexpress"  https://github.com/drtrigon/fpgarduino-icestorm/issues/1#issuecomment-717465961
+* factory-loaded example
+- explanation file:./blink_count_shift.org
+- verilog source  https://github.com/icebreaker-fpga/icebreaker-verilog-examples/blob/main/icebreaker/blink_count_shift/blink_count_shift.v
+* USB
+- enumerate :: USB device gets recognized by Linux and is assgined a device file (?)
+- "The icebreaker has a serial link to the host PC through the FTDI.
+  The FTDI has two ports, one is used for programming and the second
+  one is configured as uart and conencted to two FPGA pins where you
+  can communicate with it from your fpga design which is exactly what
+  the example you pointed to does."  https://canary.discord.com/channels/613131135903596547/613133241683279873/1049776083433693204
+- "Baudrate is what you make it. It's just connected to two FPGA IOs."  https://canary.discord.com/channels/613131135903596547/613133241683279873/1063408105406332928
+- "first [interface] appears as a UART on boot because that's what the FTDI
+  defaults to, but it's *wired as SPI* and iceprog will reconfigure it
+  at runtime as needed."
+- ttyUSB1 (2nd interface, usually): "FTDI chip on the board used to
+  reconfigure the FPGA and provide a *serial* to USB connection on
+  gateware that chooses to make use of it"
+
+* workshops
+** workshop https://github.com/icebreaker-fpga/icebreaker-workshop
+- PDF file:~/prj/icebreaker-workshop/stopwatch/icebreaker-fpga-stopwatch-workshop.pdf
+*** TODO setup toolchain
+*** DONE clone workshop repository
+cloned repo file:~/prj/icebreaker-workshop/stopwatch/
+[[shell: mkdir ~/prj/icebreaker-workshop ; cd ~/prj/icebreaker-workshop ; git clone https://github.com/icebreaker-fpga/icebreaker-workshop.git]]
+** workshop (outdated?)  https://github.com/icebreaker-fpga/wtfpga
